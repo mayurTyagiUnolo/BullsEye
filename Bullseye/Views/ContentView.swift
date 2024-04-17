@@ -37,6 +37,9 @@ struct ContentView: View {
             Button("Hit me") {
                 alertIsVisible = true
             }
+            .padding(20)
+            .background(Color.blue)
+            .foregroundColor(.white)
             .alert(
                    "Hello There!",
                    isPresented: $alertIsVisible,
