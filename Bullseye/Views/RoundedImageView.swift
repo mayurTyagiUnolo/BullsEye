@@ -7,12 +7,31 @@
 
 import SwiftUI
 
-struct RoundedImageView: View {
+struct RoundedImageViewStocked: View {
+    var systemName: String
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Image(systemName: systemName)
+            .font(.title)
+            .foregroundColor(Color("TextColor"))
+            .frame(width: 56, height: 56)
+//            .background(Color.red)
+    }
+}
+
+
+struct previewView: View {
+    var body: some View {
+        VStack(spacing: 15){
+            RoundedImageViewStocked(systemName: "arrow.counterclockwise")
+            RoundedImageViewStocked(systemName: "list.dash")
+        }
     }
 }
 
 #Preview {
-    RoundedImageView()
+    previewView()
+}
+#Preview {
+    previewView()
+        .preferredColorScheme(.dark)
 }

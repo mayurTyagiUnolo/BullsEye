@@ -7,12 +7,28 @@
 
 import SwiftUI
 
-struct ButtonViews: View {
+struct ButtonView: View {
+    var buttonTitle: String
+    @Binding var alertIsVisible: Bool
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button(buttonTitle.uppercased()) {
+            alertIsVisible = true
+        }
+        .padding(20)
+        .background(
+            ZStack{
+                Color("ButtonColor")
+                LinearGradient(gradient: Gradient(colors: [Color.white.opacity(0.3), Color.clear]), startPoint: .top, endPoint: .bottom)
+            }
+        )
+        .foregroundColor(.white)
+        .cornerRadius(21)
+        .bold()
+        .font(.title3)
     }
 }
 
 #Preview {
-    ButtonViews()
+    ButtonView(buttonTitle: "Button", alertIsVisible: .constant(true))
 }
